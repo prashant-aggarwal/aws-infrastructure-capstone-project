@@ -1,21 +1,40 @@
-resource "aws_elb" "elb" {
-  name                      = "${var.project}-elb"
-  security_groups           = [var.allow_http_id]
-  subnets                   = [var.subnet_a_id, var.subnet_b_id]
-  cross_zone_load_balancing = true
+resource "aws_lb" "alb" {
+  name               = "${var.project}-alb"
+  internal           = false
+  load_balancer_type = "application"
+  security_groups    = [var.allow_http_id]
+  subnets            = [var.subnet_a_id, var.subnet_b_id]
 
-  health_check {
-    healthy_threshold   = 2
-    unhealthy_threshold = 2
-    timeout             = 3
-    interval            = 30
-    target              = "HTTP:80/"
+  tags = {
+    Name    = "${var.project}-alb"
+    Project = var.project
+  }
+}
+
+resource "aws_lb_target_group" "alb_tg" {
+  name     = "${var.project}-alb-tg"
+  port     = 80
+  protocol = "HTTP"
+  vpc_id   = var.vpc_id
+
+  tags = {
+    Name    = "${var.project}-alb_tg"
+    Project = var.project
+  }
+}
+
+resource "aws_lb_listener" "lb_listener" {
+  load_balancer_arn = aws_lb.alb.arn
+  port              = "80"
+  protocol          = "HTTP"
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.alb_tg.arn
   }
 
-  listener {
-    lb_port           = 80
-    lb_protocol       = "http"
-    instance_port     = "80"
-    instance_protocol = "http"
+  tags = {
+    Name    = "${var.project}-lb_listener"
+    Project = var.project
   }
 }

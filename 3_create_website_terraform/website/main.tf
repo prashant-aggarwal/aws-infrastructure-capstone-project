@@ -24,11 +24,12 @@ module "load-balancer" {
   project = var.project
 
   # Passed from VPC Module
+  vpc_id      = module.vpc.vpc_id
   subnet_a_id = module.vpc.subnet_a_id
   subnet_b_id = module.vpc.subnet_b_id
 
   # Passed from Sec Groups Module
-  allow_http_id = module.sec-groups.allow_http_id
+  allow_http_id = module.security-groups.allow_http_id
 }
 
 # Create the Autoscaling Group
@@ -40,7 +41,7 @@ module "autoscaling-group" {
   startup_script = var.startup_script
 
   image_id = var.image_id
- 
+
   instance_type      = var.instance_type
   instance_count_min = var.instance_count_min
   instance_count_max = var.instance_count_max
@@ -51,8 +52,8 @@ module "autoscaling-group" {
   subnet_b_id = module.vpc.subnet_b_id
 
   # Passed from Sec Groups Module
-  allow_http_id = module.sec-groups.allow_http_id
-  allow_ssh_id  = module.sec-groups.allow_ssh_id
+  allow_http_id = module.security-groups.allow_http_id
+  allow_ssh_id  = module.security-groups.allow_ssh_id
 
   # Passed from Load Balancer Module
   load_balancer_id = module.load-balancer.load_balancer_id

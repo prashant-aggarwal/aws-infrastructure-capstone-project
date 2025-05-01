@@ -4,6 +4,10 @@ variable "project" {
   default     = "AWS Infrastructure Capstone Project"
 }
 
+variable "vpc_id" {
+  type = string
+}
+
 variable "allow_http_id" {
   type = string
 }

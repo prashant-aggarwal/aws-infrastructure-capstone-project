@@ -66,22 +66,7 @@ variable "add_public_ip" {
   default = true
 }
 
-variable "allow_http_id" {
-  type = string
-}
-
-variable "allow_ssh_id" {
-  type = string
-}
-
 variable "startup_script" {
-  type = string
-}
-
-variable "load_balancer_id" {
-  type = string
-}
-
-variable "startup_script" {
-  type = string
+  type    = string
+  default = "install_space_invaders.sh"
 }

@@ -1,8 +1,8 @@
 output "load_balancer_address" {
-  value = aws_elb.elb.dns_name
+  value = aws_lb.alb.dns_name
 }
 
 output "load_balancer_id" {
-  value = aws_elb.elb.id
+  value = aws_lb.alb.id
 }
 
