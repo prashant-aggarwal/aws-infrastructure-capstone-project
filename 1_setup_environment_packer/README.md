@@ -1,4 +1,4 @@
-1. Create an EC2 instance and connect to it using EC2 Instance Connect option. I created deploy-pa(i-069d8300dfe40f2eb) in us-east-1 region.
+1. Create an EC2 instance and connect to it using EC2 Instance Connect option. I created deploy-pa (i-069d8300dfe40f2eb) in us-east-1 region.
 2. Install Packer using the following commands:
 	sudo yum update -y
 	sudo yum install -y yum-utils
