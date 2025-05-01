@@ -55,5 +55,6 @@
 	terraform -v
 	git --version
 	packer --version
-7. Configure AWS credentials using aws configure 
-8. The EC2 instance is ready for performing the step #3 Creating a simple virtual machine.
+7. If you are logged in as root user, then change it to ec2-user via command: sudo su - ec2-user.
+8. Configure AWS secret credentials using aws configure.
+9. The EC2 instance is ready for performing the step #3 Creating a simple virtual machine.
