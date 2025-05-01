@@ -5,7 +5,7 @@
 	sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
 	sudo yum install -y packer
 3. Create ami-builder.pkr.hcl file to create an AMI which has pre-installed dependencies like Terraform, Git, Packer with updated OS packages.
-4. Create an IAM role with the following permissions and attach it to the EC2 instance to run Packer with minimum permissions privileges which will eliminate the need to export AWS access credentials.
+4. Create an IAM role (created IAM role packer_ami_ec2_role) with the following permissions (created IAM policy packer_ami_policy) and attach it to the EC2 instance to run Packer with minimum permissions privileges which will eliminate the need to export AWS access credentials.
 	{
     "Version": "2012-10-17",
     "Statement": [
