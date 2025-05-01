@@ -1,4 +1,4 @@
-1. Create an EC2 instance and connect to it using EC2 Instance Connect option.
+1. Create an EC2 instance and connect to it using EC2 Instance Connect option. I created deploy-pa(i-069d8300dfe40f2eb) in us-east-1 region.
 2. Install Packer using the following commands:
 	sudo yum update -y
 	sudo yum install -y yum-utils
@@ -51,10 +51,10 @@
 	
 	AMI Details: AMI ID -> ami-0b466949293232d87, AMI Name -> capstone-infra-custom-ami-1746095102, Owner -> 021668988309
 	
-6. Launch an EC2 instance in region "us-east-2" with ami-0b466949293232d87. Connect to it using EC2 Instance Connect option and run the following commands for validation of dependencies:
+6. Launch an EC2 instance in region "us-east-2" with ami-0b466949293232d87. Connect to it using EC2 Instance Connect option and run the following commands for validation of dependencies. I launched pa-terraform-server (i-0eba1b5c5af2fd95d) in us-east-2 region:
 	terraform -v
 	git --version
 	packer --version
-7. If you are logged in as root user, then change it to ec2-user via command: sudo su - ec2-user.
-8. Configure AWS secret credentials using aws configure.
-9. The EC2 instance is ready for performing the step #3 Creating a simple virtual machine.
+8. If you are logged in as root user, then change it to ec2-user via command: sudo su - ec2-user.
+9. Configure AWS secret credentials using aws configure.
+10. The EC2 instance is ready for performing the step #3 Creating a simple virtual machine.
