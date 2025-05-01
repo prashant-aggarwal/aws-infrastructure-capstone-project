@@ -39,11 +39,8 @@ module "autoscaling-group" {
   project        = var.project
   startup_script = var.startup_script
 
-  image_id = {
-    us-east-1 = "ami-0be2609ba883822ec",
-    us-east-2 = "ami-0a0ad6b70e61be944"
-  }
-
+  image_id = var.image_id
+ 
   instance_type      = var.instance_type
   instance_count_min = var.instance_count_min
   instance_count_max = var.instance_count_max
