@@ -4,9 +4,9 @@ module "vpc" {
 
   region        = var.region
   project       = var.project
-  vpc_cidr      = "192.168.0.0/16"
-  subnet_a_cidr = "192.168.1.0/24"
-  subnet_b_cidr = "192.168.2.0/24"
+  vpc_cidr      = var.vpc_cidr
+  subnet_a_cidr = var.subnet_a_cidr
+  subnet_b_cidr = var.subnet_b_cidr
 }
 
 # Create the Security Groups
@@ -37,17 +37,17 @@ module "autoscaling-group" {
 
   region         = var.region
   project        = var.project
-  startup_script = "install_space_invaders.sh"
+  startup_script = var.startup_script
 
   image_id = {
     us-east-1 = "ami-0be2609ba883822ec",
     us-east-2 = "ami-0a0ad6b70e61be944"
   }
 
-  instance_type      = "t2.micro"
-  instance_count_min = 2
-  instance_count_max = 10
-  add_public_ip      = true
+  instance_type      = var.instance_type
+  instance_count_min = var.instance_count_min
+  instance_count_max = var.instance_count_max
+  add_public_ip      = var.add_public_ip
 
   # Passed from VPC Module
   subnet_a_id = module.vpc.subnet_a_id
