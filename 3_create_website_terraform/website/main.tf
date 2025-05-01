@@ -56,5 +56,5 @@ module "autoscaling-group" {
   allow_ssh_id  = module.security-groups.allow_ssh_id
 
   # Passed from Load Balancer Module
-  load_balancer_id = module.load-balancer.load_balancer_id
+  target_group_arn = module.load-balancer.target_group_arn
 }
