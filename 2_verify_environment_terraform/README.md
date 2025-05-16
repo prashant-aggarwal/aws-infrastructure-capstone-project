@@ -30,4 +30,4 @@
 	aws_instance.vm: Still destroying... [id=i-0c1a6c74f4ae72b1a, 40s elapsed]
 	aws_instance.vm: Still destroying... [id=i-0c1a6c74f4ae72b1a, 50s elapsed]
 	aws_instance.vm: Destruction complete after 50s
-8. The environment is setup for performing step #4 Building a website using reusable modules.
+8. The environment is setup for performing step #3 Building a website using reusable modules.
