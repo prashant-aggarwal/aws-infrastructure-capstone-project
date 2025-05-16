@@ -1,13 +1,3 @@
-resource "aws_instance" "vm" {
-  ami           = var.ami_id
-  instance_type = var.instance_type
-
-  tags = {
-    Name = "${var.project}-vm"
-  }
-}
-[ec2-user@ip-172-31-7-16 2_verify_environment_terraform]$ ^C
-[ec2-user@ip-172-31-7-16 2_verify_environment_terraform]$ cat variables.tf
 variable "project" {
   description = "The AWS Capstone Project Name"
   type        = string
