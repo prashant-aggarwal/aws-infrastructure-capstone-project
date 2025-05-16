@@ -57,4 +57,4 @@
 	packer --version
 8. If you are logged in as root user, then change it to ec2-user via command: sudo su - ec2-user.
 9. Configure AWS secret credentials using aws configure.
-10. The EC2 instance is ready for performing the step #3 Creating a simple virtual machine.
+10. The EC2 instance is ready for performing the step #2 Verify terraform environment setup by creating a simple virtual machine.
