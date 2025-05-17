@@ -3,9 +3,9 @@ module "vpc" {
   source = "../modules/vpc"
 
   # Variables
-  region        = var.region
-  project       = var.project
-  vpc_cidr      = var.vpc_cidr
+  region   = var.region
+  project  = var.project
+  vpc_cidr = var.vpc_cidr
 }
 
 module "subnets" {
@@ -17,9 +17,9 @@ module "subnets" {
   subnet_a_cidr = var.subnet_a_cidr
   subnet_b_cidr = var.subnet_b_cidr
   add_public_ip = var.add_public_ip
-  
+
   # Passed from VPC Module
-  vpc_id        = module.vpc.vpc_id
+  vpc_id = module.vpc.vpc_id
 }
 
 # Create the Security Groups
@@ -35,13 +35,13 @@ module "security-groups" {
 
 # Create the Load Balancer
 module "load-balancer" {
-  source  = "../modules/load-balancer"
-  
+  source = "../modules/load-balancer"
+
   # Variables
   project = var.project
 
   # Passed from VPC Module
-  vpc_id      = module.vpc.vpc_id
+  vpc_id = module.vpc.vpc_id
 
   # Passed from Subnets Module
   subnet_a_id = module.subnets.subnet_a_id
@@ -56,10 +56,10 @@ module "autoscaling-group" {
   source = "../modules/autoscaling-group"
 
   # Variables
-  region         = var.region
-  project        = var.project
-  startup_script = var.startup_script
-  image_id       = var.image_id
+  region             = var.region
+  project            = var.project
+  startup_script     = var.startup_script
+  image_id           = var.image_id
   instance_type      = var.instance_type
   instance_count_min = var.instance_count_min
   instance_count_max = var.instance_count_max
