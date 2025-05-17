@@ -25,6 +25,6 @@ variable "subnet_b_cidr" {
 }
 
 variable "add_public_ip" {
-  type    = boolean
+  type    = bool
   default = true
 }
