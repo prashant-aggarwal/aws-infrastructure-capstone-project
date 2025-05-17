@@ -3,7 +3,6 @@ module "vpc" {
   source = "../modules/vpc"
 
   # Variables
-  region   = var.region
   project  = var.project
   vpc_cidr = var.vpc_cidr
 }
