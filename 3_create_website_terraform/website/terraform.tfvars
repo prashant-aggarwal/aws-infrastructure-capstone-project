@@ -10,5 +10,5 @@ instance_count_max = 6
 vpc_cidr           = "10.10.0.0/16"
 subnet_a_cidr      = "10.10.1.0/24"
 subnet_b_cidr      = "10.10.2.0/24"
-add_public_ip      = false
+add_public_ip      = true
 startup_script     = "install_space_invaders.sh"
