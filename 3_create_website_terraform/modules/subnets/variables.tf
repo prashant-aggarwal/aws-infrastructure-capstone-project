@@ -24,6 +24,16 @@ variable "subnet_b_cidr" {
   default = "10.10.2.0/24"
 }
 
+variable "subnet_c_cidr" {
+  type    = string
+  default = "10.10.3.0/24"
+}
+
+variable "subnet_d_cidr" {
+  type    = string
+  default = "10.10.4.0/24"
+}
+
 variable "add_public_ip" {
   type    = bool
   default = true
