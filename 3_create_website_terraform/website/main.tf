@@ -64,8 +64,10 @@ module "nat-gateway-route-table" {
 
   # Variables
   project  = var.project
-  vpc_cidr = var.vpc_cidr
 
+  # Passed from VPC Module
+  vpc_id = module.vpc.vpc_id
+  
   # Passed from Subnets Module
   subnet_c_id = module.subnets.subnet_c_id
   subnet_d_id = module.subnets.subnet_d_id
