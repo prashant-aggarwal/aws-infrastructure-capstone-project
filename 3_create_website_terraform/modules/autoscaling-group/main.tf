@@ -2,7 +2,7 @@ resource "aws_launch_template" "launch_template" {
   name_prefix            = "${var.project}-launch-template"
   image_id               = var.image_id[var.region]
   instance_type          = var.instance_type
-  vpc_security_group_ids = [var.allow_http_lb_ec2]
+  vpc_security_group_ids = [var.sg_allow_http_lb_id]
   user_data              = filebase64(var.startup_script)
 }
 
