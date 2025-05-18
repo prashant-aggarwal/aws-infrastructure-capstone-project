@@ -4,19 +4,9 @@ variable "project" {
   default     = "My Project"
 }
 
-variable "region" {
-  type    = string
-  default = "us-east-1"
-}
-
 variable "vpc_id" {
   type    = string
   default = "vpc-*****"
-}
-
-variable "vpc_cidr" {
-  type    = string
-  default = "10.10.0.0/16"
 }
 
 variable "nat_gateway_subnet_a_id" {
