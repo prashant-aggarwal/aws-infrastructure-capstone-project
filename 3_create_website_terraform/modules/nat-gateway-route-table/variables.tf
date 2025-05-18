@@ -29,12 +29,12 @@ variable "nat_gateway_subnet_b_id" {
   default = "nat-0d47f69ff37567ab6"
 }
 
-variable "subnet_a_id" {
+variable "subnet_c_id" {
   type    = string
   default = "subnet-08e92d22dbf20aba7"
 }
 
-variable "subnet_b_id" {
+variable "subnet_d_id" {
   type    = string
   default = "subnet-0d47f69ff37567ab6"
 }
