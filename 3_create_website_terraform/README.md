@@ -27,5 +27,5 @@ Challenges resolved:
 5. Moved hard coded values to variables as much as possible. 
 
 Improvement required:
-1. Currently, the EC2 instances are getting launched with public IPs because they are using the same subnets as those of ALB. This can be avoided by creating private subnets and attaching these to the Auto Scaling group instead.
-2. Replace the old school space invader with a modern looking website or animation.
+1. Currently, the EC2 instances are getting launched with public IPs because they are using the same subnets as those of ALB. This can be avoided by creating private subnets and attaching these to the Auto Scaling group instead - Completed by adding NAT Gateways in public subnets, creating private route tables and using private subnets for ASGs.
+2. Replace the old school space invader with a modern looking website or animation - Completed by using another space invader game.
