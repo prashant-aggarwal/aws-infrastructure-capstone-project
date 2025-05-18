@@ -51,11 +51,7 @@ variable "add_public_ip" {
   default = true
 }
 
-variable "allow_http_id" {
-  type = string
-}
-
-variable "allow_ssh_id" {
+variable "sg_allow_http_lb_id" {
   type = string
 }
 
