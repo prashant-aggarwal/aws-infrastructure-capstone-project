@@ -8,7 +8,7 @@ variable "vpc_id" {
   type = string
 }
 
-variable "allow_http_id" {
+variable "sg_allow_http_lb_id" {
   type = string
 }
 
