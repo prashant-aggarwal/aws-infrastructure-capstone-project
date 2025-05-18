@@ -5,4 +5,4 @@ systemctl start httpd
 systemctl enable httpd
 cd /var/www/html
 git init
-git pull https://github.com/drehnstrom/space-invaders.git
+git pull https://github.com/toivjon/html5-space-invaders.git
