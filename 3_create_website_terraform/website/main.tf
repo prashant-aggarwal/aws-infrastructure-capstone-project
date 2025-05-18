@@ -63,11 +63,11 @@ module "nat-gateway-route-table" {
   source = "../modules/nat-gateway-route-table"
 
   # Variables
-  project  = var.project
+  project = var.project
 
   # Passed from VPC Module
   vpc_id = module.vpc.vpc_id
-  
+
   # Passed from Subnets Module
   subnet_c_id = module.subnets.subnet_c_id
   subnet_d_id = module.subnets.subnet_d_id
