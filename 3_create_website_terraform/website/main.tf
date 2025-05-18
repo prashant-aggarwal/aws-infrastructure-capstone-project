@@ -92,7 +92,7 @@ module "load-balancer" {
   subnet_b_id = module.subnets.subnet_b_id
 
   # Passed from Security Groups Module
-  allow_http_id = module.security-groups.allow_http_id
+  sg_allow_http_lb_id = module.security-groups.sg_allow_http_lb_id
 }
 
 # Create the Autoscaling Group
@@ -114,8 +114,7 @@ module "autoscaling-group" {
   subnet_d_id = module.subnets.subnet_d_id
 
   # Passed from Sec Groups Module
-  allow_http_id = module.security-groups.allow_http_id
-  allow_ssh_id  = module.security-groups.allow_ssh_id
+  sg_allow_http_lb_ec2_id = module.security-groups.sg_allow_http_lb_ec2_id
 
   # Passed from Load Balancer Module
   target_group_arn = module.load-balancer.target_group_arn
