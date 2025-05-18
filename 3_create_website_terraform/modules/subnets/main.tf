@@ -1,47 +1,43 @@
-resource "aws_security_group" "allow-http-lb" {
-  name        = "${var.project}-allow-http-lb"
-  description = "Allow HTTP Traffic for ALB"
-  vpc_id      = var.vpc_id
-  
+resource "aws_subnet" "subnet-a" {
+  vpc_id                  = var.vpc_id
+  cidr_block              = var.subnet_a_cidr
+  availability_zone       = "${var.region}a"
+  map_public_ip_on_launch = true
+
   tags = {
-    Name = "${var.project}-allow-http-lb"
+    Name = "${var.project}-vpc-subnet-a"
   }
 }
 
-resource "aws_vpc_security_group_ingress_rule" "allow-http-lb-ingress" {
-  security_group_id = aws_security_group.allow-http-lb.id
-  cidr_ipv4         = "0.0.0.0/0"
-  from_port         = 80
-  ip_protocol       = "tcp"
-  to_port           = 80
-}
+resource "aws_subnet" "subnet-b" {
+  vpc_id                  = var.vpc_id
+  cidr_block              = var.subnet_b_cidr
+  availability_zone       = "${var.region}b"
+  map_public_ip_on_launch = true
 
-resource "aws_vpc_security_group_egress_rule" "allow-http-lb-egress" {
-  security_group_id = aws_security_group.allow-http-lb.id
-  cidr_ipv4         = "0.0.0.0/0"
-  ip_protocol       = "-1"
-}
-
-resource "aws_security_group" "allow-http-lb-ec2" {
-  name        = "${var.project}-allow-http-lb-ec2"
-  description = "Allow HTTP Traffic from ALB to EC2 instances"
-  vpc_id      = var.vpc_id
-  
   tags = {
-    Name = "${var.project}-allow-http-lb-ec2"
+    Name = "${var.project}-vpc-subnet-b"
   }
 }
 
-resource "aws_vpc_security_group_ingress_rule" "allow-http-lb-ec2-ingress" {
-  security_group_id = aws_security_group.allow-http-lb-ec2.id
-  referenced_security_group_id = aws_security_group.allow-http-lb.id
-  from_port         = 80
-  ip_protocol       = "tcp"
-  to_port           = 80
+resource "aws_subnet" "subnet-c" {
+  vpc_id                  = var.vpc_id
+  cidr_block              = var.subnet_c_cidr
+  availability_zone       = "${var.region}a"
+  map_public_ip_on_launch = false
+
+  tags = {
+    Name = "${var.project}-vpc-subnet-c"
+  }
 }
 
-resource "aws_vpc_security_group_egress_rule" "allow-http-lb-ec2-egress" {
-  security_group_id = aws_security_group.allow-http-lb-ec2.id
-  cidr_ipv4         = "0.0.0.0/0"
-  ip_protocol       = "-1"
+resource "aws_subnet" "subnet-d" {
+  vpc_id                  = var.vpc_id
+  cidr_block              = var.subnet_d_cidr
+  availability_zone       = "${var.region}b"
+  map_public_ip_on_launch = false
+
+  tags = {
+    Name = "${var.project}-vpc-subnet-d"
+  }
 }
