@@ -16,12 +16,12 @@ resource "aws_route_table" "public-rt" {
   }
 }
 
-resource "aws_route_table_association" "a" {
-  subnet_id      = var.subnet_a_id
+resource "aws_route_table_association" "public_rt_association_a" {
+  subnet_id      = var.subnet_c_id
   route_table_id = aws_route_table.public-rt.id
 }
 
-resource "aws_route_table_association" "b" {
-  subnet_id      = var.subnet_b_id
+resource "aws_route_table_association" "public_rt_association_b" {
+  subnet_id      = var.subnet_d_id
   route_table_id = aws_route_table.public-rt.id
 }
