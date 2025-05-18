@@ -71,6 +71,14 @@ variable "subnet_b_id" {
   type = string
 }
 
+variable "subnet_c_id" {
+  type = string
+}
+
+variable "subnet_d_id" {
+  type = string
+}
+
 variable "target_group_arn" {
   type = string
 }
