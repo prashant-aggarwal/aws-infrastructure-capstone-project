@@ -51,7 +51,7 @@ variable "add_public_ip" {
   default = true
 }
 
-variable "sg_allow_http_lb_id" {
+variable "sg_allow_http_lb_ec2_id" {
   type = string
 }
 
