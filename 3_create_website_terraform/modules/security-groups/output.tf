@@ -1,7 +1,7 @@
-output "allow_ssh_id" {
-  value = aws_security_group.allow-ssh.id
+output "allow_http_lb" {
+  value = aws_security_group.allow-http-lb.id
 }
 
-output "allow_http_id" {
-  value = aws_security_group.allow-http.id
+output "allow_http_lb_ec2" {
+  value = aws_security_group.allow-http-lb-ec2.id
 }
