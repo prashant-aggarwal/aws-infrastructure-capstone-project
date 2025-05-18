@@ -63,7 +63,7 @@ module "nat-gateway-route-table" {
   source = "../modules/nat-gateway-route-table"
 
   # Variables
-  project = var.project
+  project  = var.project
   vpc_cidr = var.vpc_cidr
 
   # Passed from Subnets Module
