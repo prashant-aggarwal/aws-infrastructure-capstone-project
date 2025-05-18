@@ -24,6 +24,16 @@ variable "subnet_b_cidr" {
   default = "10.10.2.0/24"
 }
 
+variable "subnet_c_cidr" {
+  type    = string
+  default = "10.10.3.0/24"
+}
+
+variable "subnet_d_cidr" {
+  type    = string
+  default = "10.10.4.0/24"
+}
+
 variable "image_id" {
   description = "The id of the machine image (AMI) to use for the server."
   type        = map(string)
